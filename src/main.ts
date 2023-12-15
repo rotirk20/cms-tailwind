@@ -1,11 +1,12 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core'
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 
 
 import { environment } from './environments/environment'
 import { AppComponent } from './app/app.component';
 import { AppRoutingModule } from './app/app-routing.module';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { JwtInterceptor } from './app/core/interceptor/jwt.interceptor';
 
 if (environment.production) {
     enableProdMode()
@@ -16,7 +17,10 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-    providers: [importProvidersFrom(BrowserModule, AppRoutingModule)]
+    providers: [
+        importProvidersFrom(BrowserModule, AppRoutingModule),
+        provideHttpClient(withFetch(), withInterceptors([JwtInterceptor]))
+    ]
 })
     .catch((err) => console.error(err))
 
