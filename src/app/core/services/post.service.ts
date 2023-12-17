@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Post } from 'src/app/modules/dashboard/models/post';
+import { Post, SinglePost } from 'src/app/modules/dashboard/models/post';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +18,8 @@ export class PostService {
     return this.http.get<Post[]>(`${this.baseUrl}/posts`, { headers: this.headers });
   }
 
-  getPost(id: string): Observable<Post> {
-    return this.http.get<Post>(`${this.baseUrl}/posts/${id}`, { headers: this.headers });
+  getPost(id: string): Observable<SinglePost> {
+    return this.http.get<SinglePost>(`${this.baseUrl}/posts/${id}`, { headers: this.headers });
   }
 
   updatePost(id: string, body: string): Observable<Post> {

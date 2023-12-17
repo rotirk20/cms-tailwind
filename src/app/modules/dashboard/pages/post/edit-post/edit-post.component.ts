@@ -17,7 +17,9 @@ export class EditPostComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       title: ['', Validators.required], // Title field with required validation
       content: ['', Validators.required], // Content field with required validation
-      status: ['']
+      status: ['', Validators.required],
+      categories: [[]],
+      created_by: ['']
       // Add other form fields as needed
     });
   }

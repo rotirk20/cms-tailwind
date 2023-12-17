@@ -20,7 +20,9 @@ export class CreatePostComponent {
     this.createForm = this.formBuilder.group({
       title: ['', Validators.required], // Title field with required validation
       content: ['', Validators.required], // Content field with required validation
-      status: ['']
+      status: ['', Validators.required],
+      categories: [[]],
+      created_by: ['']
       // Add other form fields as needed
     });
   }

@@ -11,7 +11,7 @@ export class Menu {
           label: 'Dashboard',
           route: '/dashboard',
           children: [
-            { label: 'Posts', route: '/dashboard/posts/list' },
+            { label: 'Posts', route: '/dashboard/posts' },
           ],
         },
         {
@@ -31,7 +31,7 @@ export class Menu {
         {
           icon: 'assets/icons/heroicons/outline/users.svg',
           label: 'Users',
-          route: '/users',
+          route: '/dashboard/users',
         },
       ],
     },

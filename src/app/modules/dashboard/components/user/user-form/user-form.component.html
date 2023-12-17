@@ -31,69 +31,62 @@
             </div>
 
             @if (formType == 'edit') {
-            <time datetime="post.created_on | date: 'dd.MM.yyyy HH:mm'" class="text-gray-400 text-xs">Created on
-                {{post.createdAt | date: 'MMM d ,yyyy HH:mm'}}</time>
-            <span class="text-gray-400 text-xs"> By {{ post.created_by?.first_name }} {{ post.created_by?.last_name
-                }}</span>
-            <h2 class="text-base font-semibold leading-7 text-gray-900">Edit Post</h2>
+            <h2 class="text-base font-semibold leading-7 text-gray-900">Edit User</h2>
             } @else {
-            <h2 class="text-base font-semibold leading-7 text-gray-900">Create Post</h2>
+            <h2 class="text-base font-semibold leading-7 text-gray-900">Create User</h2>
             }
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="col-span-full sm:col-span-3">
-                    <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Post title</label>
+                    <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
                     <div class="mt-2">
                         <div
                             class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-400">
-                            <input type="text" name="title" id="title" autocomplete="title" formControlName="title"
+                            <input type="text" name="first_name" id="first_name" autocomplete="first_name" formControlName="first_name"
                                 class="block flex-1 py-2 px-3 ring-1 ring-inset ring-gray-300 border-0 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6 h-10"
-                                placeholder="Title">
+                                placeholder="First name">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-span-full sm:col-span-3">
-                    <label for="tags" class="block text-sm font-medium leading-6 text-gray-900">Categories</label>
-                    <div *ngFor="let category of categories;  let i = index" class="mt-2">
-                        <div class="flex items-center">
-                            <!-- Checkbox Input -->
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                                [checked]="isCategorySelected(category._id)"
-                                (change)="updateCategory(category._id)"
-                                [value]="category._id">
-
-                            <!-- Label -->
-                            <label for="checkbox1" class="ml-2 block text-gray-900">{{category.name}}</label>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-span-full sm:col-span-3">
-                    <label for="status" class="block text-sm font-medium leading-6 text-gray-900">Status</label>
-                    <select name="status" formControlName="status"
-                        class="py-2 px-4 block mt-2 w-full shadow-sm ring-gray-300 text-md focus:border-blue-500 focus:ring-2 focus:ring-inset focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600 h-10">
-                        <!-- Added h-10 for height -->
-                        <option disabled selected>Status</option>
-                        <option value="published">Published</option>
-                        <option value="private">Private</option>
-                        <option value="draft">Draft</option>
-                    </select>
-                </div>
-
-                <div class="col-span-full">
-                    <label for="content" class="block text-sm font-medium leading-6 text-gray-900">Content</label>
+                    <label for="last_name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
                     <div class="mt-2">
-                        <textarea id="content" name="content" rows="7" formControlName="content"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"></textarea>
+                        <div
+                            class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-400">
+                            <input type="text" name="last_name" id="last_name" autocomplete="last_name" formControlName="last_name"
+                                class="block flex-1 py-2 px-3 ring-1 ring-inset ring-gray-300 border-0 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6 h-10"
+                                placeholder="Last name">
+                        </div>
                     </div>
                 </div>
 
+                
+                <div class="col-span-full sm:col-span-3">
+                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">E-mail</label>
+                    <div class="mt-2">
+                        <div
+                            class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-400">
+                            <input type="text" name="email" id="email" autocomplete="email" formControlName="email"
+                                class="block flex-1 py-2 px-3 ring-1 ring-inset ring-gray-300 border-0 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6 h-10"
+                                placeholder="Email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-full sm:col-span-3">
+                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                    <div class="mt-2">
+                        <div
+                            class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-400">
+                            <input type="text" name="password" id="password" autocomplete="password" formControlName="password"
+                                class="block flex-1 py-2 px-3 ring-1 ring-inset ring-gray-300 border-0 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6 h-10"
+                                placeholder="Password">
+                        </div>
+                    </div>
+                </div>
 
                 <div class="col-span-full">
-                    <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Feautured
-                        Image</label>
+                    <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Avatar</label>
                     <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                         <div class="text-center">
                             <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"

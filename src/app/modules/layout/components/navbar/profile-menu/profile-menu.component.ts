@@ -18,7 +18,6 @@ export class ProfileMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = this._authService.getUser();
-    console.log(this.userData)
   }
 
   public toggleMenu(): void {
